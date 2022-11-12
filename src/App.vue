@@ -30,7 +30,7 @@
     <div v-for="todo in todos">
       <div>
         <div>Title: {{todo.title }}</div>
-        <div>Description: {{todo.description}}</div>
+        <div v-if="todo.description">Description: {{todo.description}}</div>
         <button @click="removeToDo" :id="todos.indexOf(todo)"> - </button>
       </div>
     </div>
