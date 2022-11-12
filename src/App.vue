@@ -1,7 +1,4 @@
 <script>
-    import {nanoid} from "nanoid"
-
-
     export default {
         data() {
             return {
@@ -15,8 +12,9 @@
                 this.todos.push(this.todo)
                 this.todo = {title: "", description: ""}
             },
-            removeToDo() {
-
+            removeToDo(e) {
+              const id = e.target.getAttribute("id");
+              this.todos.splice(id, 1)
             }
         }
     }
@@ -32,10 +30,10 @@
     </form>
 
     <div v-for="todo in todos">
-      <div :id="todos.indexOf(todo)">
+      <div>
         <div>Title: {{todo.title }}</div>
         <div>Description: {{todo.description}}</div>
-        <button @click="removeToDo">Remove</button>
+        <button @click="removeToDo" :id="todos.indexOf(todo)">Remove</button>
       </div>
     </div>
 </template>
