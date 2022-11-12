@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "nanoid": "^4.0.0",
     "vue": "^3.2.41"
   },
   "devDependencies": {
