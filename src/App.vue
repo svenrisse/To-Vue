@@ -16,6 +16,21 @@
               const id = e.target.getAttribute("id");
               this.todos.splice(id, 1)
             }
+        },
+
+        watch: {
+          todos: {
+            handler() {
+                localStorage.setItem("todos", JSON.stringify(this.todos))
+            },
+            deep: true
+          }
+        },
+
+        mounted() {
+            if (localStorage.getItem("todos")) {
+                this.todos = JSON.parse(localStorage.getItem("todos"))
+            }
         }
     }
 </script>
