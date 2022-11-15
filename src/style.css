@@ -15,6 +15,12 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
 
 body {
   margin: 0;
@@ -37,18 +43,52 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #42b883;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.add-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vh;
 }
+
+.task-section {
+  margin-top: 5vh;
+  display: grid;
+  grid-template: auto / 1fr 1fr 1fr;
+  gap: 2vh;
+}
+
+.task-section__task {
+  height: 10vh;
+  width: 10vw;
+  border: #42b883 1px solid;
+  border-radius: 20px;
+  padding: 4vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-section__button {
+  margin-top: auto;
+}
+
+.task-section__text {
+  cursor: pointer;
+}
+
+.task-section__title {
+  font-size: 20px;
+}
+
+.task-section__desc {
+  opacity: 50%;
+  font-size: 15px;
+}
+
 
