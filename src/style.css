@@ -59,9 +59,11 @@ button:focus-visible {
 
 .task-section {
   margin-top: 5vh;
-  display: grid;
-  grid-template: auto / 1fr 1fr 1fr;
-  gap: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5vw;
 }
 
 .task-section__task {
@@ -72,23 +74,28 @@ button:focus-visible {
   padding: 4vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .task-section__button {
-  margin-top: auto;
+  height: 4.5vh;
+  width: 7vw;
+  margin-top: 2vh;
 }
 
 .task-section__text {
   cursor: pointer;
+  height: 5vh;
 }
 
 .task-section__title {
-  font-size: 20px;
+  font-size: 1rem;
 }
 
 .task-section__desc {
   opacity: 50%;
-  font-size: 15px;
+  font-size: 0.5rem;
 }
 
 

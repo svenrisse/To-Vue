@@ -11,7 +11,7 @@ defineProps(["title", "description", "id"]);
             </div>
         </div>
         <button @click="$emit('handleClick', id)" class="task-section__button">
-            Remove
+            -
         </button>
     </div>
 </template>
