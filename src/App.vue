@@ -1,52 +1,69 @@
-<script>
-    export default {
-        data() {
-            return {
-                todo: {title: "", description: ""},
-                todos: []
-            }
-        },
+<script setup>
+import { onMounted, ref, watch } from "vue";
 
-        methods: {
-            addToDo() {
-                this.todos.push(this.todo)
-                this.todo = {title: "", description: ""}
-            },
-            removeToDo(e) {
-              const id = e.target.getAttribute("id");
-              this.todos.splice(id, 1)
-            }
-        },
+const todo = {
+    title: ref(""),
+    description: ref(""),
+};
+const todos = ref([]);
 
-        watch: {
-          todos: {
-            handler() {
-                localStorage.setItem("todos", JSON.stringify(this.todos))
-            },
-            deep: true
-          }
-        },
+function resetInput() {
+    todo.title.value = "";
+    todo.description.value = "";
+}
 
-        mounted() {
-            if (localStorage.getItem("todos")) {
-                this.todos = JSON.parse(localStorage.getItem("todos"))
-            }
-        }
+function addToDo() {
+    todos.value.push({
+        title: todo.title.value,
+        description: todo.description.value,
+    });
+    resetInput();
+}
+
+function removeToDo(e) {
+    const id = e.target.getAttribute("id")
+    todos.value.splice(id, 1)
+}
+
+onMounted(() => {
+    if (localStorage.getItem("todos")) {
+        todos.value = JSON.parse(localStorage.getItem("todos"))
     }
+})
+
+watch(todos, (newVal) => {
+    console.log("Watch executed")
+    localStorage.setItem("todos", JSON.stringify(newVal))
+}, {
+    deep: true
+})
+
 </script>
 
 <template>
     <form @submit.prevent="addToDo">
-        <input type="text" name="title" v-model="todo.title" placeholder="Title">
-        <input type="text" name="description" v-model="todo.description" placeholder="Description">
-        <button> + </button>
+        <input
+            type="text"
+            name="title"
+            v-model="todo.title.value"
+            placeholder="Title"
+        />
+        <input
+            type="text"
+            name="description"
+            v-model="todo.description.value"
+            placeholder="Description"
+        />
+        <button>+</button>
     </form>
 
-    <div v-for="todo in todos">
-      <div>
-        <div>Title: {{todo.title }}</div>
-        <div v-if="todo.description">Description: {{todo.description}}</div>
-        <button @click="removeToDo" :id="todos.indexOf(todo)"> - </button>
-      </div>
+    <div v-for="task in todos">
+        <div>
+            <div>Title: {{ task.title }}</div>
+            <div v-if="task.description">
+                Description: {{ task.description }}
+            </div>
+            <button @click="removeToDo" :id="todos.indexOf(task)">-</button>
+        </div>
     </div>
 </template>
