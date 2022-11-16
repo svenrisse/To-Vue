@@ -16,9 +16,8 @@ function resetInput() {
 function addToDo() {
     todos.value.push({
         title: todo.title.value,
-        description: todo.description.value,
-        done: false
-    });
+        description: todo.description.value
+    })
     resetInput()
 }
 
