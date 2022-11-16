@@ -1,10 +1,11 @@
 <script setup>
-defineProps(["title", "description", "id"]);
+defineProps(["title", "description", "id"])
+
 </script>
 
 <template>
-    <div>
-        <div @click="changeStatus" class="task-section__text">
+    <div @click="changeStatus" >
+        <div class="task-section__text">
             <div class="task-section__title">{{ title }}</div>
             <div v-if="description" class="task-section__desc">
                 {{ description }}

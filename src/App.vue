@@ -5,8 +5,8 @@ import Todo from "./components/Todo.vue"
 const todo = {
     title: ref(""),
     description: ref(""),
-};
-const todos = ref([]);
+}
+const todos = ref([])
 
 function resetInput() {
     todo.title.value = ""
@@ -63,9 +63,11 @@ watch(
         />
         <button class="add-section__button">+</button>
     </form>
+
     <div class="task-section">
         <div v-for="task in todos" class="task-section__task">
             <Todo :title="task.title" :description="task.description" :id="todos.indexOf(task)" @handleClick="removeToDo"/>
         </div>
     </div>
+    
 </template>
