@@ -6,5 +6,7 @@ Check it out on:
 Tools used:
 
 - [Vue](https://vuejs.org/)
+- [Vue Router](https://router.vuejs.org/)
 - [Vite](https://vitejs.dev/)
+- [Firebase](https://firebase.google.com/)
 
