@@ -55,6 +55,8 @@ onMounted(() => {
     onValue(userTasks, (snapshot) => {
         const data = snapshot.val();
         todos.value = JSON.parse(data);
+    }, {
+        onlyOnce: true
     })
 });
 
@@ -63,6 +65,7 @@ watch(
     (newVal) => {
         console.log("Watch executed");
         const data = JSON.stringify(newVal);
+        console.log(data);
 
         writeUserData(firebaseUser, data);
     },
@@ -92,6 +95,10 @@ watch(
         <button class="add-section__button">+</button>
     </form>
 
+    {{firebaseUser}}
+    <div v-if="todos.values">
+        Todos has values
+    </div>
     <div class="task-section">
         <div v-for="task in todos" class="task-section__task">
             <Todo
