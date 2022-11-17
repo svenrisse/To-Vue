@@ -95,10 +95,6 @@ watch(
         <button class="add-section__button">+</button>
     </form>
 
-    {{firebaseUser}}
-    <div v-if="todos.values">
-        Todos has values
-    </div>
     <div class="task-section">
         <div v-for="task in todos" class="task-section__task">
             <Todo
