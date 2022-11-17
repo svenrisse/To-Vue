@@ -7,6 +7,7 @@ import firebase from "firebase/compat/app"
 const firebaseConfig = {
     apiKey: "AIzaSyCW2pImbEEBPb5h8IbHF-xq5l9pxcqY3mw",
     authDomain: "vue-to-do-81c7d.firebaseapp.com",
+    databaseURL: "https://vue-to-do-81c7d-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "vue-to-do-81c7d",
     storageBucket: "vue-to-do-81c7d.appspot.com",
     messagingSenderId: "565574310353",

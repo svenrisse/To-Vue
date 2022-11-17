@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watchEffect } from "vue";
+import { ref} from "vue";
 import firebase from "firebase/compat";
 import { useRouter } from "vue-router";
 
@@ -24,8 +24,8 @@ function signOut() {
     <div>
         <nav>
             <router-link to="/"> Home </router-link>
-            <router-link to="/todos"> Todos </router-link>
             <span v-if="isLoggedIn">
+                <router-link to="/todos"> Todos </router-link>
                 <button @click="signOut">Logout</button>
             </span>
             <span v-if="!isLoggedIn">
