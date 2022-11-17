@@ -1,12 +1,37 @@
-<script setup></script>
+<script setup>
+import { ref, watchEffect } from "vue";
+import firebase from "firebase/compat";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const isLoggedIn = ref(true);
+
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        isLoggedIn.value = true;
+    } else {
+        isLoggedIn.value = false;
+    }
+});
+
+function signOut() {
+    firebase.auth().signOut();
+    router.push("/");
+}
+</script>
 
 <template>
     <div>
         <nav>
-            <router-link to="/"> Home </router-link> |
-            <router-link to="/todos"> Todos </router-link> |
-            <router-link to="/register"> Register </router-link> |
-            <router-link to="/sign-in"> Login </router-link> |
+            <router-link to="/"> Home </router-link>
+            <router-link to="/todos"> Todos </router-link>
+            <span v-if="isLoggedIn">
+                <button @click="signOut">Logout</button>
+            </span>
+            <span v-if="!isLoggedIn">
+                <router-link to="/register"> Register </router-link>
+                <router-link to="/sign-in"> Login </router-link>
+            </span>
         </nav>
         <router-view />
     </div>
