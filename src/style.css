@@ -68,11 +68,11 @@ button:focus-visible {
 }
 
 .task-section__task {
-  height: 10vh;
-  width: 10vw;
+  height: 20vh;
+  width: 30vw;
   border: #42b883 1px solid;
   border-radius: 20px;
-  padding: 4vh;
+  padding: 2vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,8 +81,8 @@ button:focus-visible {
 
 .task-section__button {
   height: 4.5vh;
-  width: 7vw;
-  margin-top: 2vh;
+  width: 4vw;
+  margin-top: 8vh;
 }
 
 .task-section__text {
