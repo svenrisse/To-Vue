@@ -87,6 +87,7 @@ watch(
             v-model="todo.title.value"
             placeholder="Title"
             class="add-section__input"
+            maxlength="15"
             required
         />
         <input
@@ -95,6 +96,7 @@ watch(
             v-model="todo.description.value"
             placeholder="Description"
             class="add-section__input"
+            maxlength="15"
         />
         <button class="add-section__button">+</button>
     </form>
