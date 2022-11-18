@@ -54,7 +54,13 @@ onMounted(() => {
     const userTasks = dbRef(db, "users/" + firebaseUser + "/tasks");
     onValue(userTasks, (snapshot) => {
         const data = snapshot.val();
-        todos.value = JSON.parse(data);
+        console.log(data);
+        if (data != null) {
+            todos.value = JSON.parse(data);
+        } else {
+            todos.value = [];
+        }
+        
     }, {
         onlyOnce: true
     })
@@ -65,8 +71,6 @@ watch(
     (newVal) => {
         console.log("Watch executed");
         const data = JSON.stringify(newVal);
-        console.log(data);
-
         writeUserData(firebaseUser, data);
     },
     {
