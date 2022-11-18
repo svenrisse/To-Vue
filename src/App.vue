@@ -23,16 +23,21 @@ function signOut() {
 <template>
     <div>
         <nav>
-            <router-link to="/"> Home </router-link>
             <span v-if="isLoggedIn">
-                <router-link to="/todos"> Todos </router-link>
-                <button @click="signOut">Logout</button>
+                <button @click="signOut" class="logout-button">Logout</button>
             </span>
             <span v-if="!isLoggedIn">
                 <router-link to="/register"> Register </router-link>
                 <router-link to="/sign-in"> Login </router-link>
+                <p>Welcome to To-Vue. Please register or sign in to create some To-Do's!</p>
             </span>
         </nav>
         <router-view />
     </div>
 </template>
+
+<style>
+    .logout-button {
+        margin-bottom: 10vh;
+    }
+</style>
