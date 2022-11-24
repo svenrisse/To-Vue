@@ -1,6 +1,6 @@
 My first Vue App!
 Check it out on:
-[Netlify](https://celebrated-gelato-6bb427.netlify.app/)
+[Vercel](https://to-vue.vercel.app/)
 
 
 Tools used:
